@@ -7,26 +7,25 @@
 
 ### 📌 Release Notes (V3.2.6)
 
-1. **Performance & Usability Optimizations**
-   - **Accelerated Burn Speed**: Re-architected link establishment and status detection routines, eliminated hardcoded delays, significantly speeding up programming workflows.
-   - **One-Click Concurrent Programming**: Added the "ALL One-Click Programming" panel, supporting batch execution across individual port configs or syncing all ports to a designated reference JTAG port.
-   - **Cleaned Logging Hierarchy**: Optimized log output tiers for a clean, professional console experience.
+#### 1. Performance & Usability Optimizations
+- **Accelerated Burn Speed**: Re-architected link establishment and status detection routines, eliminated hardcoded delays, significantly speeding up programming workflows.
+- **One-Click Concurrent Programming**: Added the "ALL One-Click Programming" panel, supporting batch execution across individual port configs or syncing all ports to a designated reference JTAG port.
+- **Cleaned Logging Hierarchy**: Optimized log output tiers for a clean, professional console experience.
 
-2. **Expanded Flash Chip Support** *(Note: Applicable to this host utility; does not affect standard Vivado programming with SZ901)*
-   - **Hardware Verified Manufacturers (Pass)**:
-     - 🟢 **Winbond**
-     - 🟢 **GigaDevice**
-     - 🟢 **Micron**
-     - 🟢 **Puya**
-   - **Driver-Supported / Pending Hardware Verification**:
-     - 🟡 **Infineon / Cypress** *(Newly added in this release; unsupported in previous versions)*
-     - 🟡 **Macronix (MXIC)**
-     - 🟡 **ISSI**
-     - 🟡 **Fudan Microelectronics (FM)**
-     - 🟡 **ESMT**, **Microchip / SST**, etc.
+#### 2. Expanded Flash Chip Support *(Note: Applicable to this host utility; does not affect standard Vivado programming with SZ901)*
+- **Hardware Verified Manufacturers (Pass)**:
+    - 🟢 **Winbond**
+    - 🟢 **GigaDevice**
+    - 🟢 **Micron**
+    - 🟢 **Puya**
+- **Driver-Supported / Pending Hardware Verification**:
+    - 🟡 **Infineon / Cypress** *(Newly added in this release; unsupported in previous versions)*
+    - 🟡 **Macronix (MXIC)**
+    - 🟡 **ISSI**
+    - 🟡 **Fudan Microelectronics (FM)**
+    - 🟡 **ESMT**, **Microchip / SST**, etc.
 
-> [!NOTE]
-> **Pending Verification Note**:
+> 💡 **Pending Verification Note**:  
 > The underlying driver has fully implemented Manufacturer ID detection and QE configuration logic for the above vendors. Full-chain hardware programming verification is pending due to lack of physical board/chip samples. Feedback and co-debugging from users of these chips are warmly welcomed.
 
 ---
@@ -36,16 +35,16 @@
 - [Release Notes (V3.2.6)](#-release-notes-v326)
 - [1. Troubleshooting & FAQ](#1-troubleshooting--faq)
 - [2. Key Features & Operation Guide](#2-key-features--operation-guide)
-  - [2.1 Flash Quad (X4) Mode Auto-Enablement](#21-flash-quad-x4-mode-auto-enablement)
-  - [2.2 Multi-Port Parallel Burn Isolation](#22-multi-port-parallel-burn-isolation)
-  - [2.3 ALL One-Click Concurrent Burn Guide](#23-all-one-click-concurrent-burn-guide)
+    - [2.1 Flash Quad (X4) Mode Auto-Enablement](#21-flash-quad-x4-mode-auto-enablement)
+    - [2.2 Multi-Port Parallel Burn Isolation](#22-multi-port-parallel-burn-isolation)
+    - [2.3 ALL One-Click Concurrent Burn Guide](#23-all-one-click-concurrent-burn-guide)
 - [3. Technical Support](#3-technical-support)
 
 ---
 
 ## 1. Troubleshooting & FAQ
 
-> [!WARNING]
+> ⚠️ **Troubleshooting Notice**:  
 > If you encounter any unexpected behavior during operation, please refer to the following troubleshooting steps first.
 
 **Q1: The device scan discovers devices on the network, but specific details (IP, current JTAG frequency, etc.) are not displayed.**
@@ -93,8 +92,7 @@ FPGA hardware architecture compatibility matrix:
 | **Virtex UltraScale+** | `VUP` | XCVU3P, XCVU5P, XCVU7P, XCVU9P, XCVU11P, XCVU13P | 🟢 Supported |
 | **Fudan Micro (FMK)** | `FMK` | Selected proprietary models | 🟠 Unsupported |
 
-> [!NOTE]
-> If your FPGA model is not listed in the matrix above, please contact the developer for custom adaptation.
+> 💡 **Note**: If your FPGA model is not listed in the matrix above, please contact the developer for custom adaptation.
 
 ### 2.2 Multi-Port Parallel Burn Isolation
 - The utility supports 4 concurrent JTAG channels. The background subsystem automatically allocates dedicated service ports (`localhost:3121~3124`) for each channel, achieving true multi-process concurrency isolation;
